@@ -10,15 +10,16 @@ const Header = () => {
             <Container>
                 <LinkContainer to='/'>
                     <Navbar.Brand >
-                    <img src={logo} alt="ORIginal" style={{ maxHeight: '150px', width: '100px' }} />
+                        <img src={logo} alt="ORIginal" style={{ maxHeight: '150px', width: '100px' }} />
                     </Navbar.Brand>
                 </LinkContainer>
 
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
-                
+
                 <Navbar.Collapse id="basic-navbar-nav">
 
                     <Nav className='ms-auto'>
+                        
                         <LinkContainer to='/cart'>
                             <Nav.Link> <FaShoppingCart/> Cart </Nav.Link>
                         </LinkContainer>

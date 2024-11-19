@@ -14,7 +14,7 @@ const products = [
     },
     {
         _id: '2',
-        name: 'PlyStation 5',
+        name: 'PlayStation 5',
         image: '/images/playstation.jpg',
         description: 
         'Best console in the world',
