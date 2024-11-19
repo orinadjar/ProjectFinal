@@ -1,0 +1,15 @@
+{
+  "name": "proshop",
+  "version": "2.0.0",
+  "description": "eCommerce App built with MERN",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Ori Nadjar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
