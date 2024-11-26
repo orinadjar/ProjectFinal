@@ -33,11 +33,34 @@ const products = [
         brand: 'Canon',
         category: 'Electronics',
         price: 449.99,
-        countInStock: 15,
+        countInStock: 12,
         rating: 4.7,
         numReviews: 8,
     },
-    
+    {
+        _id: '4',
+        name: 'Logitech MX Master 3',
+        image: '/images/mouse.jpg',
+        description: 'Advanced wireless mouse with ergonomic design, customizable buttons, and fast scrolling',
+        brand: 'Logitech',
+        category: 'Electronics',
+        price: 99.99,
+        countInStock: 25,
+        rating: 4.8,
+        numReviews: 15,
+    },
+    {
+        _id: '5',
+        name: 'iPhone 14 Pro',
+        image: '/images/phone.jpg',
+        description: 'Apple smartphone with A16 Bionic chip, 6.1-inch Super Retina XDR display, and advanced camera system',
+        brand: 'Apple',
+        category: 'Electronics',
+        price: 999.99,
+        countInStock: 30,
+        rating: 4.9,
+        numReviews: 120,
+    }
 ];
 
 export default products;
