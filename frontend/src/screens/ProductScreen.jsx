@@ -13,14 +13,12 @@ const ProductScreen = () => {
 
     useEffect(() => { // gets all the products from /api/products and put them in products.
         const fetchProducts = async () => {
-            const { data } = await axios.get(`/api/products/${productId}`);
+            const { data } = await axios.get(`/api/products/${productId}`); // axios.get(`/api/products/${productId}`) - Promise
             setProducts(data);
           }
       
           fetchProducts();
-    }, [productId]);
-
-
+    }, [productId]); // Fetching Data When productId Changes
 
 
   return <>

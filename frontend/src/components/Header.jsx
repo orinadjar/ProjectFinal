@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'
 const Header = () => {
   return (
     <header>
-        <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect className="navbar-compact">
+        <Navbar variant="dark" expand="md" collapseOnSelect className="navbar-compact navbar-lightblue">
 
             <Container>
                 <LinkContainer to='/'>

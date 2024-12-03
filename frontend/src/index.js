@@ -33,4 +33,4 @@ root.render(
 );
 
 
-reportWebVitals();
+reportWebVitals(); // used to measure and repport performance metrics of the react app
