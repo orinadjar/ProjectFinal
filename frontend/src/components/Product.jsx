@@ -6,7 +6,7 @@ const Product = ({ product }) => {
 
     <Card className='my-3 p-3 rounded product-card'>
 
-        <Link to={`/product/${product._id}`} className="product-image-link">
+        <Link to={`/product/${product.id}`} className="product-image-link">
 
             <div className="product-image-container">
 
@@ -17,11 +17,12 @@ const Product = ({ product }) => {
                 </div>
 
             </div>
+
         </Link>
 
         <Card.Body>
             
-            <Link to={`/product/${product._id}`} className="text-decoration-none">
+            <Link to={`/product/${product.id}`} className="text-decoration-none">
 
                 <Card.Title as="div" className='product-title'>
                     <strong>{product.name}</strong>
@@ -45,4 +46,4 @@ const Product = ({ product }) => {
   )
 }
 
-export default Product
+export default Product;
