@@ -11,14 +11,15 @@ const ProductScreen = () => {
 
     const { id: productId } = useParams(); // a react router hook
 
-    useEffect(() => { // gets all the products from /api/products and put them in products.
+    useEffect(() => { // gets all the products from /api/products and put them in products
         const fetchProducts = async () => {
             const { data } = await axios.get(`/api/products/${productId}`); // axios.get(`/api/products/${productId}`) - Promise
+            //if ignore
             setProducts(data);
           }
       
           fetchProducts();
-    }, [productId]); // Fetching Data When productId Changes
+    }, []); // Fetching Data When productId Changes
 
 
   return <>

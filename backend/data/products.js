@@ -1,5 +1,6 @@
 const products = [
     {
+        id: 1,
         name: 'Airpods Wireless Bluetooth Headphones',
         image: '/images/airpods.jpg',
         description: 
@@ -12,6 +13,7 @@ const products = [
         numReviews: 12,
     },
     {
+        id: 2,
         name: 'PlayStation 5',
         image: '/images/playstation.jpg',
         description: 
@@ -24,6 +26,7 @@ const products = [
         numReviews: 12,
     },
     {
+        id: 3,
         name: 'Canon EOS Rebel T7',
         image: '/images/camera.jpg',
         description: 'High-quality DSLR camera with 24.1 MP sensor and Wi-Fi connectivity',
@@ -35,6 +38,7 @@ const products = [
         numReviews: 8,
     },
     {
+        id: 4,
         name: 'Logitech MX Master 3',
         image: '/images/mouse.jpg',
         description: 'Advanced wireless mouse with ergonomic design, customizable buttons, and fast scrolling',
@@ -46,6 +50,7 @@ const products = [
         numReviews: 15,
     },
     {
+        id: 5,
         name: 'iPhone 14 Pro',
         image: '/images/phone.jpg',
         description: 'Apple smartphone with A16 Bionic chip, 6.1-inch Super Retina XDR display, and advanced camera system',
