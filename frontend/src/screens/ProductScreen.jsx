@@ -10,6 +10,7 @@ const ProductScreen = () => {
     const [product, setProducts] = useState([]);
 
     const { id: productId } = useParams(); // a react router hook
+    console.log(productId);
 
     useEffect(() => { // gets all the products from /api/products and put them in products
         const fetchProducts = async () => {

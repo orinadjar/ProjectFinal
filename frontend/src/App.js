@@ -7,7 +7,7 @@ import WelcomeVideo from "./components/WelcomeVideo";
 const App = () => {
   return (
     <>
-      <WelcomeVideo videoSrc="/WalcomeVid.mp4" />
+      {/*<WelcomeVideo videoSrc="/WalcomeVid.mp4" />*/ }
       <Header/>
       <main className='py-3'>
         <Container>
