@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from './slices/apiSlice';
+import cartSliceReducer from './slices/cartSlice.js'
 
 // Create and configure the Redux store
 const store = configureStore({
@@ -7,6 +8,7 @@ const store = configureStore({
     reducer: {
         // Add the API slice reducer using its unique reducerPath
         [apiSlice.reducerPath]: apiSlice.reducer,
+        cart: cartSliceReducer,
     },
     // Enhance the default middleware to include the API slice middleware
     middleware: (getDefaultMiddleware) => 
