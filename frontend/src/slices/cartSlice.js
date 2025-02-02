@@ -31,13 +31,19 @@ const cartSlice = createSlice({
 
             return updateCart(state);
 
-            
+        },
+
+        removeFromCart: (state, action) => {
+
+            state.cartItems = state.cartItems.filter((x) => x._id !== action.payload);
+
+            return updateCart(state);
         },
     },
 });
 
 // Exporting the addToCart action to be dispatched elsewhere in the app
-export const { addToCart } = cartSlice.actions;
+export const { removeFromCart, addToCart } = cartSlice.actions;
 
 // Exporting the reducer to be used in the Redux store
 export default cartSlice.reducer;
