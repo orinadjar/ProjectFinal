@@ -4,7 +4,7 @@ import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import { FaTrash } from 'react-icons/fa';
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../slices/cartSlice';
-const CardScreen = () => {
+const CartScreen = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -105,4 +105,4 @@ const CardScreen = () => {
   )
 }
 
-export default CardScreen
+export default CartScreen
