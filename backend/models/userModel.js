@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.matchPassword = async function ( entredPassword ){
     return await bcrypt.compare(entredPassword, this.password);
-}
+};
 
 // Create the User model based on the schema
 const User = mongoose.model("User", userSchema);
