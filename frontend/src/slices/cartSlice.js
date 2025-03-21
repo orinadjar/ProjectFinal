@@ -4,7 +4,7 @@ import { updateCart } from "../utils/cartUtils";
 // Initial state for the cart. If there's a saved cart in localStorage, parse it; otherwise, start with an empty cart.
 const initialState = localStorage.getItem("cart") 
   ? JSON.parse(localStorage.getItem("cart")) // Parse the cart data from localStorage if available
-  : { cartItems: [] }; // Initialize with an empty cart if no data in localStorage
+  : { cartItems: [], shippingAddress: {}, paymentMethod: 'PayPal' }; // Initialize with an empty cart if no data in localStorage
 
 
 
@@ -39,11 +39,16 @@ const cartSlice = createSlice({
 
             return updateCart(state);
         },
+
+        saveShippingAddress: (state, action) => {
+            state.shippingAddress = action.payload;
+            return updateCart(state);
+        },
     },
 });
 
 // Exporting the addToCart action to be dispatched elsewhere in the app
-export const { removeFromCart, addToCart } = cartSlice.actions;
+export const { removeFromCart, addToCart, saveShippingAddress } = cartSlice.actions;
 
 // Exporting the reducer to be used in the Redux store
 export default cartSlice.reducer;
