@@ -1,19 +1,27 @@
-import { Spinner } from "react-bootstrap";
+import React from 'react';
+import '../assets/styles/Loader.css';
 
 const Loader = () => {
   return (
-    <Spinner
-        animation="border"
-        role="status"
-        style={{
-                width: "100px",
-                height: "100px",
-                margin: "auto",
-                display: "block",
-            }}      
-        >
-    </Spinner>
-  )
-}
+    <div className="custom-loader-container">
 
-export default Loader
+      <div className="custom-loader">
+
+        <div className="circle-container">
+
+          <div className="circle circle-1"></div>
+          <div className="circle circle-2"></div>
+          <div className="circle circle-3"></div>
+          <div className="circle circle-4"></div>
+        
+        </div>
+        
+        <div className="loader-text">Loading</div>
+      
+      </div>
+    
+    </div>
+  );
+};
+
+export default Loader;

@@ -1,0 +1,187 @@
+
+.custom-loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+  }
+  
+  .custom-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .circle-container {
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .circle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #42e2f5, #2196f3);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .circle-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+  }
+  
+  .circle-2 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: 0.375s;
+  }
+  
+  .circle-3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.75s;
+  }
+  
+  .circle-4 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation-delay: 1.125s;
+  }
+  
+  .loader-text {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  
+  .loader-text::after {
+    content: "...";
+    position: absolute;
+    animation: ellipsis 1.5s infinite;
+    width: 24px;
+    text-align: left;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1) translateX(-50%) translateY(-50%);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5) translateX(-33.3%) translateY(-33.3%);
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+    }
+  }
+  
+  @keyframes ellipsis {
+    0% { content: ""; }
+    25% { content: "."; }
+    50% { content: ".."; }
+    75% { content: "..."; }
+  }
+  
+  /* תיקונים לפוזישן של כל עיגול */
+  .circle-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .circle-2 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  
+  .circle-3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .circle-4 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  /* תיקונים לאנימציה של כל עיגול */
+  .circle-1 {
+    animation: pulse1 1.5s ease-in-out infinite;
+  }
+  
+  .circle-2 {
+    animation: pulse2 1.5s ease-in-out infinite;
+    animation-delay: 0.375s;
+  }
+  
+  .circle-3 {
+    animation: pulse3 1.5s ease-in-out infinite;
+    animation-delay: 0.75s;
+  }
+  
+  .circle-4 {
+    animation: pulse4 1.5s ease-in-out infinite;
+    animation-delay: 1.125s;
+  }
+  
+  @keyframes pulse1 {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-50%) scale(1.5);
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+    }
+  }
+  
+  @keyframes pulse2 {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50%) scale(1.5);
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+    }
+  }
+  
+  @keyframes pulse3 {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-50%) scale(1.5);
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+    }
+  }
+  
+  @keyframes pulse4 {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50%) scale(1.5);
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+    }
+  }

@@ -1,0 +1,193 @@
+/* שים לב: יש להוסיף Bootstrap Icons לפרויקט */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+.checkout-progress-container {
+  margin: 2.5rem 0;
+  padding: 0 1rem;
+}
+
+.checkout-steps-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.checkout-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  z-index: 2;
+}
+
+.step-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid #e0e0e0;
+}
+
+.step-circle i {
+  font-size: 24px;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.step-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.active-step .step-circle {
+  background: linear-gradient(135deg, #42e2f5, #2196f3);
+  border-color: transparent;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.active-step .step-circle i {
+  color: white;
+}
+
+.active-step .step-label {
+  color: #2196f3;
+  font-weight: 700;
+}
+
+.disabled-step {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.step-connector-wrapper {
+  position: absolute;
+  top: 30px;
+  left: 60%;
+  width: 100%;
+  z-index: 1;
+}
+
+.step-connector {
+  height: 3px;
+  background: #e0e0e0;
+  position: relative;
+  width: 80%;
+}
+
+/* אפקט גלישה - צבעוני כאשר השלב פעיל */
+.checkout-step-item:not(:last-child) .active-step ~ .step-connector-wrapper .step-connector::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #42e2f5, #2196f3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  animation: progressFill 0.7s ease forwards;
+}
+
+@keyframes progressFill {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 768px) {
+  .step-label {
+    font-size: 12px;
+  }
+  
+  .step-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .step-circle i {
+    font-size: 20px;
+  }
+  
+  .step-connector-wrapper {
+    top: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout-steps-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .checkout-step-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .step-content {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .step-circle {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+  
+  .step-connector-wrapper {
+    top: 50%;
+    left: 30px;
+    width: 3px;
+    height: 100%;
+  }
+  
+  .step-connector {
+    width: 3px;
+    height: 100%;
+    position: absolute;
+  }
+  
+  .checkout-step-item:not(:last-child) .active-step ~ .step-connector-wrapper .step-connector::before {
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: progressFillVertical 0.7s ease forwards;
+  }
+  
+  @keyframes progressFillVertical {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+}

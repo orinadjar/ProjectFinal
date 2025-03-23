@@ -44,11 +44,16 @@ const cartSlice = createSlice({
             state.shippingAddress = action.payload;
             return updateCart(state);
         },
+
+        savePaymentMethod: (state, action) => {
+            state.PaymetMethod = action.payload;
+            return updateCart(state);
+        }
     },
 });
 
 // Exporting the addToCart action to be dispatched elsewhere in the app
-export const { removeFromCart, addToCart, saveShippingAddress } = cartSlice.actions;
+export const { removeFromCart, addToCart, saveShippingAddress, savePaymentMethod } = cartSlice.actions;
 
 // Exporting the reducer to be used in the Redux store
 export default cartSlice.reducer;
