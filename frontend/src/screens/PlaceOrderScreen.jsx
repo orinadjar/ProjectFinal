@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { toast } from "react-toastify";
-import CheckoutSteps from "../components/ChackoutSteps";
-import Message from '../components/Message';
-import Loader from '../components/Loader';
+import CheckoutSteps from "../components/ChackoutSteps.jsx";
+import Message from '../components/Message.jsx';
+import Loader from '../components/Loader.jsx';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice.js';
-import { clearCartItems } from '..//slices/cartSlice.js';
+import { clearCartItems } from '../slices/cartSlice.js';
 
 
 const PlaceOrderScreen = () => {
