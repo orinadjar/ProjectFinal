@@ -1,0 +1,120 @@
+/* HomeScreen.css */
+
+/* Main container */
+.home-container {
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 150px); /* Assuming navbar is around 70-80px */
+  }
+  
+  /* Hero section styling */
+  .hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  
+  .subheading {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 0;
+  }
+  
+  /* Products grid */
+  .products-row {
+    margin-top: 20px;
+  }
+  
+  .product-col {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-col:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-wrapper {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .product-wrapper:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Loading state */
+  .loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+  
+  /* Error container */
+  .error-container {
+    max-width: 800px;
+    margin: 40px auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .main-heading {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-container {
+      padding: 30px 15px;
+    }
+    
+    .main-heading {
+      font-size: 1.8rem;
+    }
+    
+    .hero-section {
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .home-container {
+      padding: 20px 10px;
+    }
+    
+    .main-heading {
+      font-size: 1.6rem;
+    }
+    
+    .subheading {
+      font-size: 1rem;
+    }
+  }
