@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 import { addToCart } from "../slices/cartSlice";
+import '../assets/styles/ProductScreen.css'
 
 
 const ProductScreen = () => {
@@ -52,8 +53,8 @@ const ProductScreen = () => {
                         <Rating value={product.rating} text={`${product.numReviews} reviews`}></Rating>
                     </ListGroup.Item>
 
-                    <ListGroup.Item>Price: ${product.price} </ListGroup.Item>
-                    <ListGroup.Item>{product.description} </ListGroup.Item>
+                    <ListGroup.Item className="bold-blue">Price: ${product.price} </ListGroup.Item>
+                    <ListGroup.Item className="bold-black">{product.description} </ListGroup.Item>
 
                 </ListGroup>
                 
