@@ -108,6 +108,7 @@ table th {
 
 .navbar-brand {
   position: relative;
+  overflow: visible;
   margin-right: 1.5rem;
   padding: 0;
 }
@@ -128,6 +129,7 @@ table th {
 }
 
 .navbar-collapse {
+  z-index: 9999;
   justify-content: flex-end;
 }
 
