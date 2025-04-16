@@ -7,21 +7,31 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         // Define the getProducts query
         getProducts: builder.query({
             // Define the API request configuration
-            query: () => ({
+            query: (category) => ({
                 url: PRODUCTS_URL, // The URL endpoint for fetching products
+                params: category ? { category } : {},
             }),
             // Configure how long to keep unused data in the cache (in seconds)
+            keepUnusedDataFor: 5,
+        }),
+        getCategories: builder.query({
+            query: () => ({
+                url: `${PRODUCTS_URL}/categories`,
+            }),
             keepUnusedDataFor: 5,
         }),
         getProductDetails: builder.query({
             query: (Pid) => ({
                 url: `${PRODUCTS_URL}/${Pid}`,
             }),
-
             keepUnusedDataFor: 5,
         })
     }),
 });
 
 // Export a custom hook for the getProducts query
-export const { useGetProductsQuery, useGetProductDetailsQuery } = productsApiSlice;
+export const { 
+    useGetProductsQuery, 
+    useGetProductDetailsQuery,
+    useGetCategoriesQuery 
+} = productsApiSlice;

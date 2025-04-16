@@ -118,3 +118,85 @@
       font-size: 1rem;
     }
   }
+
+.category-select {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  background-color: white;
+  font-size: 1rem;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.category-select:hover {
+  border-color: #3498db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto 30px;
+  padding: 0 15px;
+  max-width: 1200px;
+}
+
+.category-button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-width: 100px;
+  margin: 4px;
+}
+
+.category-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-button.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+}
+
+.category-button.btn-outline-primary {
+  border: 2px solid #3498db;
+  color: #3498db;
+  background: white;
+}
+
+.category-button.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-color: transparent;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .categories-container {
+    gap: 8px;
+    margin: 15px auto 25px;
+  }
+
+  .category-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    min-width: 90px;
+  }
+}

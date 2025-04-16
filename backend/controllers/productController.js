@@ -5,10 +5,11 @@ import Product from "../models/productModel.js"
 // @route GET /api/products
 // @access Public
 const getProducts = asyncHandler(async (req,res) => {
-
-    const products = await Product.find({}); // find - Mongoose quary function
+    const category = req.query.category;
+    const queryObject = category ? { category } : {};
+    
+    const products = await Product.find(queryObject);
     res.json(products);
-
 });
 
 // @desc Fetch product by id
@@ -25,4 +26,12 @@ const getProductsById = asyncHandler(async (req,res) => {
     }
 });
 
-export { getProducts, getProductsById };
+// @desc Get all unique categories
+// @route GET /api/products/categories
+// @access Public
+const getCategories = asyncHandler(async (req, res) => {
+    const categories = await Product.distinct('category');
+    res.json(categories);
+});
+
+export { getProducts, getProductsById, getCategories };
