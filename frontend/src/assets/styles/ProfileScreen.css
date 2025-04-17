@@ -1,0 +1,49 @@
+.profile-container {
+    padding: 20px;
+}
+
+.profile-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-form-card, .orders-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table {
+    margin-bottom: 0;
+}
+
+.orders-table th {
+    background-color: #f8f9fa;
+} 
+
+.custom-badge {
+    background-color: red !important;
+    color: white;
+  }
