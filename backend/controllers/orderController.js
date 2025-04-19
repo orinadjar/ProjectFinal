@@ -1,3 +1,4 @@
+import { json } from "express";
 import asyncHandler from "../middleware/asyncHandler.js" // Importing the asyncHandler utility
 import Order from "../models/orderModel.js"
 
@@ -117,7 +118,9 @@ const updateOrderToDelivered = asyncHandler(async (req,res) => {
 // @access Private/admin
 const getOrders = asyncHandler(async (req,res) => {
 
-    res.send('get all orders');
+    const orders = await Order.find({}).populate('user', 'id name');
+    
+    res.status(200).json(orders);
 
 });
 
