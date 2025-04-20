@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: false,
     },
+    easterPerk: {
+        type: String,
+        default: null,
+      },
 
 }, {
     timestamps: true,  // Automatically add createdAt and updatedAt fields

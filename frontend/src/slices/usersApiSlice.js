@@ -33,7 +33,14 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 body: data,
             }),
         }),
+        unlockPerk: builder.mutation({
+            query: () => ({
+              url: '/api/users/unlock-perk',
+              method: 'POST',
+            }),
+          }),
+          
     }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useProfileMutation } = usersApiSlice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useProfileMutation, useUnlockPerkMutation } = usersApiSlice;

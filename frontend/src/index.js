@@ -27,6 +27,8 @@ import OrderScreen from './screens/OrderScreen.jsx';
 import ProfileScreen from './screens/ProfileScreen.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
 import OrderListScreen from './screens/adminScreens/OrderListScreen.jsx';
+import SecretEasterEggScreen from './screens/EasterEgg/SecretEasterEggScreen.jsx';
+import SecretEasterEggSulotionScreen from './screens/EasterEgg/EasterEggSolutionScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,7 +48,8 @@ const router = createBrowserRouter(
             <Route path='/placeorder' element={<PlaceOrderScreen/>}></Route>
             <Route path='/order/:id' element={<OrderScreen/>}></Route>
             <Route path='/profile' element={<ProfileScreen/>}></Route>
-
+            <Route path='/easteregg' element={<SecretEasterEggScreen/>}></Route>
+            <Route path='/easteregg/oranisacactus' element={<SecretEasterEggSulotionScreen/>}></Route>
           </Route>
 
           <Route path="" element={<AdminRoute/>}>

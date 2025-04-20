@@ -20,15 +20,15 @@ const authUser = asyncHandler(async (req,res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin
+            isAdmin: user.isAdmin,
+            easterPerk: user.toObject().easterPerk,
         });
     } else {
         res.status(401);
         throw new Error('Invalid email or password');
     }
 
-    console.log(req.body);
-
+    console.log(user);
 });
 
 // @desc Logout User / clear the cookie
@@ -97,11 +97,14 @@ const getUserProfile = asyncHandler(async (req,res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            easterPerk: user.toObject().easterPerk,
         });
     }else {
         res.status(404);
         throw new Error('User not found');
     }
+
+    console.log(user)
 
 });
 
@@ -183,6 +186,7 @@ const getUserById = asyncHandler(async (req,res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            easterPerk: user.easterPerk,
         });
     }else{
         res.status(404);
@@ -200,6 +204,22 @@ const updateUser = asyncHandler(async (req,res) => {
 
 });
 
+// @desc Unlock Easter Egg Perk
+// @route POST /api/users/unlock-perk
+// @access Private
+const unlockEasterPerk = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+  
+    if (user) {
+      user.easterPerk = 'rainbow'; 
+      await user.save();
+      res.status(200).json({ message: '🎉 You unlocked a special perk!' });
+    } else {
+      res.status(404);
+      throw new Error('User not found');
+    }
+  });
+
 
 export {
     authUser,
@@ -211,4 +231,5 @@ export {
     deleteUser,
     updateUser,
     getUserById, 
+    unlockEasterPerk,
 }

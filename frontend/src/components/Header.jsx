@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import logo from '../assets/logo.png';
+import '../assets/styles/Header.css';
 
 const Header = () => {
 
@@ -16,6 +17,15 @@ const Header = () => {
   const navigate = useNavigate();
 
   const [logoutApiCall] = useLogoutMutation();
+
+  const titleName = userInfo?.easterPerk === 'rainbow' ? (
+    <span className="glow-name">👑 {userInfo.name} 👑</span>
+  ) : (
+    <span>{userInfo?.name || 'Guest'}</span>
+  );
+
+  console.log(userInfo?.easterPerk);
+
 
   const logoutHandler = async () => {
 
@@ -58,7 +68,7 @@ const Header = () => {
 
                     { userInfo ? 
                     
-                    (<NavDropdown title={userInfo.name} id='username'>
+                    (<NavDropdown title={titleName} id='username'>
 
                         <LinkContainer to='/profile'>
                             <NavDropdown.Item>Profile</NavDropdown.Item>
