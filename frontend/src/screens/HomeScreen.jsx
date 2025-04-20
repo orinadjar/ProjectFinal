@@ -39,7 +39,7 @@ const HomeScreen = () => {
     );
   }
 
-  return (
+  return <>
     <div className="home-container">
       <div className="hero-section">
         <h1 className="main-heading">Latest Products</h1>
@@ -76,7 +76,10 @@ const HomeScreen = () => {
         ))}
       </Row>
     </div>
-  )
+
+    <small style={{color:"#F6F0F0"}}>type /easteregg in the url to see magic</small>
+
+  </>
 }
 
 export default HomeScreen

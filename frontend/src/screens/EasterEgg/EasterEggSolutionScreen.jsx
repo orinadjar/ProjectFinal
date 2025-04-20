@@ -22,6 +22,8 @@ const EasterEggSolutionScreen = () => {
 
   return <>
     <h1>Congrets!!✨ you solved the easter egg</h1>
+    <h2>The riddle was not easy and you did it, well done!</h2>
+    <h5 className='glow-name'>Never forget that Oran is a cactus</h5>
     <Button
         variant='warning'
         className='mt-4'

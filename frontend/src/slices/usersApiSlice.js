@@ -38,9 +38,15 @@ export const usersApiSlice = apiSlice.injectEndpoints({
               url: '/api/users/unlock-perk',
               method: 'POST',
             }),
-          }),
+        }),
+        getUsers: builder.query({
+            query: () => ({
+                url: `${USERS_URL}`
+            }),
+            keepUnusedDataFor: 5,
+        }),
           
     }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useProfileMutation, useUnlockPerkMutation } = usersApiSlice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useProfileMutation, useUnlockPerkMutation, useGetUsersQuery } = usersApiSlice;
