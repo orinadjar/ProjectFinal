@@ -3,7 +3,7 @@ import { Card, Form, Button, Row, Col, Table, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { FaUser, FaShoppingBag, FaHistory, FaEdit, FaCheck, FaTimes } from 'react-icons/fa';
+import { FaUser, FaShoppingBag, FaHistory, FaEdit, FaCheck} from 'react-icons/fa';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { useProfileMutation } from '../slices/usersApiSlice';

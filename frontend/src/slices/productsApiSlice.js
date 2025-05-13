@@ -14,6 +14,14 @@ export const productsApiSlice = apiSlice.injectEndpoints({
             // Configure how long to keep unused data in the cache (in seconds)
             keepUnusedDataFor: 5,
         }),
+        getAllProducts: builder.query({
+            // Define the API request configuration
+            query: () => ({
+                url: PRODUCTS_URL, // The URL endpoint for fetching products
+            }),
+            // Configure how long to keep unused data in the cache (in seconds)
+            keepUnusedDataFor: 5,
+        }),
         getCategories: builder.query({
             query: () => ({
                 url: `${PRODUCTS_URL}/categories`,
@@ -25,7 +33,14 @@ export const productsApiSlice = apiSlice.injectEndpoints({
                 url: `${PRODUCTS_URL}/${Pid}`,
             }),
             keepUnusedDataFor: 5,
-        })
+        }),
+        createProduct: builder.mutation({
+            query: () => ({
+                url: PRODUCTS_URL,
+                method: 'POST',
+            }),
+            invalidatesTags: ['Product'],
+        }),
     }),
 });
 
@@ -33,5 +48,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 export const { 
     useGetProductsQuery, 
     useGetProductDetailsQuery,
-    useGetCategoriesQuery 
+    useGetCategoriesQuery ,
+    useGetAllProductsQuery,
+    useCreateProductMutation,
 } = productsApiSlice;

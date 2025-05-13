@@ -34,4 +34,40 @@ const getCategories = asyncHandler(async (req, res) => {
     res.json(categories);
 });
 
-export { getProducts, getProductsById, getCategories };
+// @desc Create new product
+// @route POST /api/products
+// @access Private/admin
+const createProduct = asyncHandler(async (req,res) => {
+    
+    const product = new Product({
+        name: 'sample name',
+        price: 0,
+        user: req.user._id,
+        image: '/images/sample.jpg',
+        brand: 'Sample brand',
+        category: 'Sample category',
+        countInStock: 0,
+        numReviews: 0,
+        description: 'Sample description',
+    });
+
+    const createProduct = await product.save();
+    res.status(201).json(createProduct);
+});
+
+// @desc Delete product
+// @route DELETE /api/products/:id
+// @access Private/Admin
+const deleteProduct = asyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+
+    if (product) {
+        await Product.deleteOne({ _id: product._id });
+        res.status(200).json({ message: 'Product removed' });
+    } else {
+        res.status(404);
+        throw new Error('Product not found');
+    }
+});
+
+export { getProducts, getProductsById, getCategories, createProduct, deleteProduct };
