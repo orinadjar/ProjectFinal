@@ -3,30 +3,32 @@ import { Table, Button, Row, Col } from 'react-bootstrap';
 import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import { useGetAllProductsQuery, useCreateProductMutation } from "../../slices/productsApiSlice"
+import { useGetAllProductsQuery, useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation } from "../../slices/productsApiSlice"
 import { toast } from "react-toastify";
 
 const ProductListScreen = () => {
 
     const {data: products, isLoading, error, refetch} = useGetAllProductsQuery();
-
     const [createProduct, {isLoading: loadingCreate}] = useCreateProductMutation();
+    const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
 
     const deleteHandler = async (Pid) => {
-        try {
-            
-        } catch (error) {
-            
-        }
+        if(window.confirm('Are you sure you want to delete this product?'))
+            try {
+                await deleteProduct(Pid);
+                toast.success("Item delited!");
+                refetch();
+            } catch (error) {
+                toast.error(error?.data?.message || error.error);
+            }
     }
 
     const createProductHandler = async () => {
         if (window.confirm('Are you sure you want to create a new product?')) {
             try {
-
                 await createProduct();
+                toast.success("Item created!");
                 refetch();
-
             } catch (error) {
                 toast.error(error?.data?.message || error.message);
             }
@@ -34,9 +36,7 @@ const ProductListScreen = () => {
     };
 
     return <>
-
         <Row className="align-items-center">
-            
             <Col>
                 <h1>Products</h1>
             </Col>
@@ -46,10 +46,10 @@ const ProductListScreen = () => {
                     <FaEdit/> Create Product
                 </Button>
             </Col>
-
         </Row>
 
         {loadingCreate && <Loader/>}
+        {loadingDelete && <Loader/>}
 
         { isLoading ? <Loader/> : error ? <Message variant='danger'/> : (
         <>

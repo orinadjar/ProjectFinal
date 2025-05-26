@@ -1,4 +1,4 @@
-import { PRODUCTS_URL } from "../constants";
+import { PRODUCTS_URL, UPLOADS_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
 // Extend the existing apiSlice by injecting new endpoints
@@ -12,6 +12,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
                 params: category ? { category } : {},
             }),
             // Configure how long to keep unused data in the cache (in seconds)
+            providesTags: ['Product'],
             keepUnusedDataFor: 5,
         }),
         getAllProducts: builder.query({
@@ -20,6 +21,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
                 url: PRODUCTS_URL, // The URL endpoint for fetching products
             }),
             // Configure how long to keep unused data in the cache (in seconds)
+            providesTags: ['Product'],
             keepUnusedDataFor: 5,
         }),
         getCategories: builder.query({
@@ -41,6 +43,27 @@ export const productsApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ['Product'],
         }),
+        updateProduct: builder.mutation({
+            query: (data) => ({
+                url: `${PRODUCTS_URL}/${data.productId}`,
+                method: 'PUT',
+                body: data, 
+            }),
+            invalidatesTags: ['Product'],
+        }),
+        uploadProductImage: builder.mutation({
+            query: (data) => ({
+                url: `${UPLOADS_URL}`,
+                method: 'POST',
+                body: data,
+            }),
+        }),
+        deleteProduct: builder.mutation({
+            query: (productId) => ({
+                url: `${PRODUCTS_URL}/${productId}`,
+                method: 'DELETE',
+            }),
+        }),
     }),
 });
 
@@ -51,4 +74,7 @@ export const {
     useGetCategoriesQuery ,
     useGetAllProductsQuery,
     useCreateProductMutation,
+    useUpdateProductMutation,
+    useUploadProductImageMutation,
+    useDeleteProductMutation,
 } = productsApiSlice;

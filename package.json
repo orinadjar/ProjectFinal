@@ -23,7 +23,8 @@
     "express": "^4.21.1",
     "js": "^0.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.3"
+    "mongoose": "^8.8.3",
+    "multer": "^2.0.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

@@ -13,7 +13,7 @@ const Footer = () => {
               ORIginal &copy; {currentYear}
             </p>
             <p style={{ color: '#856404', backgroundColor: '#fff3cd', padding: '8px', borderRadius: '6px', fontSize: '0.8rem' }}>
-                ⚠️ This is a prototype website! Functionality may be limited.
+                ⚠️ This is a non-real prototype website! Functionality may be limited.
             </p>
 
           </Col>

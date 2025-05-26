@@ -31,6 +31,8 @@ import SecretEasterEggScreen from './screens/EasterEgg/SecretEasterEggScreen.jsx
 import SecretEasterEggSulotionScreen from './screens/EasterEgg/EasterEggSolutionScreen.jsx';
 import UsersListScreen from './screens/adminScreens/UsersListScreen.jsx'
 import ProductListScreen from './screens/adminScreens/ProductListScreen.jsx';
+import ProductEditScreen from './screens/adminScreens/ProductEditScreen.jsx';
+import UserEditScreen from './screens/adminScreens/UserEditScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -60,6 +62,8 @@ const router = createBrowserRouter(
             <Route path='/admin/orderlist' element={<OrderListScreen/>}></Route>
             <Route path='/admin/userslist' element={<UsersListScreen/>}></Route>
             <Route path='/admin/productlist' element={<ProductListScreen/>}></Route>
+            <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}></Route>
+            <Route path='/admin/user/:id/edit' element={<UserEditScreen/>}></Route>
 
           </Route>
 
