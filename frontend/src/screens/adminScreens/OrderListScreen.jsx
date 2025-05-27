@@ -5,8 +5,6 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import { useGetOrdersQuery } from "../../slices/ordersApiSlice"
 
-
-
 const OrderListScreen = () => {
 
   const { data: orders, isLoading, error } = useGetOrdersQuery();
@@ -14,7 +12,7 @@ const OrderListScreen = () => {
   return <>
 
     <h1>Orders</h1>
-    { isLoading ? <Loader/> : error ? <Message variant='danger'> {error} </Message> :
+    { isLoading ? <Loader/> : error ? <Message variant='danger'>   {error?.data?.message || error.error || 'An error occurred'} </Message> :
       (
         <Table hover classname='orders-table'>
 

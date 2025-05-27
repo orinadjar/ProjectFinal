@@ -50,7 +50,7 @@ const UserEditScreen = () => {
             <FormContainer>
                 <h1>Edit User</h1>
                 {loadingUpdate && <Loader></Loader>}
-                {isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                {isLoading ? <Loader /> : error ? <Message variant='danger'>  {error?.data?.message || error.error || 'An error occurred'} </Message> : (
                     <Form onSubmit={submitHandler}>
                         <Form.Group controlId='name' className="my-2">
                             <Form.Label>Name</Form.Label>
@@ -66,7 +66,7 @@ const UserEditScreen = () => {
 
                         <Form.Group controlId='isAdmin' className="my-2">
                             <Form.Label>Is an admin</Form.Label>
-                            <Form.Check type='checkbox' lable="is Admin" checked={isAdmin} onChange={(e) => SetisAdmin(e.target.checked)}>
+                            <Form.Check type='checkbox' label="is Admin" checked={isAdmin} onChange={(e) => SetisAdmin(e.target.checked)}>
                             </Form.Check>
                         </Form.Group>
 
