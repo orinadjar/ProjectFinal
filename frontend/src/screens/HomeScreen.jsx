@@ -1,15 +1,24 @@
 import {Row, Col, ButtonGroup, Button} from 'react-bootstrap'
+import { useParams } from 'react-router-dom';
 import Product from '../components/Product';
 import { useGetProductsQuery, useGetCategoriesQuery } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import '../assets/styles/HomeScreen.css';
 import { useState } from 'react';
+import Paginate from '../components/Paginate';
+import { useSelector } from 'react-redux';
 
 const HomeScreen = () => {
+
   const [selectedCategory, setSelectedCategory] = useState('');
-  const { data: products, isLoading: productsLoading, error: productsError } = useGetProductsQuery(selectedCategory);
+  
+  const { pageNumber } = useParams();
+
+  const { data, isLoading: productsLoading, error: productsError } = useGetProductsQuery({ category: selectedCategory, pageNumber });
   const { data: categories, isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
+
+  const { userInfo } = useSelector((state) => state.auth);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category === selectedCategory ? '' : category);
@@ -67,7 +76,7 @@ const HomeScreen = () => {
       </div>
 
       <Row className="products-row">
-        {products.map((product) => (
+        {data.products.map((product) => (
           <Col key={product._id} sm={12} md={6} lg={4} xl={3} className="product-col">
             <div className="product-wrapper">
               <Product product={product}/>
@@ -75,6 +84,8 @@ const HomeScreen = () => {
           </Col>
         ))}
       </Row>
+
+      <Paginate pages={data.pages} page={data.page}></Paginate> {/* page component buttom left */}
     </div>
 
     <small style={{color:"#F6F0F0"}}>type /easteregg in the url to see magic</small>

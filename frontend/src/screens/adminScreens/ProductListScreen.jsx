@@ -1,14 +1,18 @@
 import { LinkContainer } from "react-router-bootstrap"; 
 import { Table, Button, Row, Col } from 'react-bootstrap';
-import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import { useGetAllProductsQuery, useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation } from "../../slices/productsApiSlice"
+import { useGetProductsQuery, useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation } from "../../slices/productsApiSlice"
 import { toast } from "react-toastify";
+import Paginate from "../../components/Paginate";
 
 const ProductListScreen = () => {
 
-    const {data: products, isLoading, error, refetch} = useGetAllProductsQuery();
+    const { pageNumber } = useParams();
+
+    const {data, isLoading, error, refetch} = useGetProductsQuery({pageNumber});
     const [createProduct, {isLoading: loadingCreate}] = useCreateProductMutation();
     const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
 
@@ -68,7 +72,7 @@ const ProductListScreen = () => {
 
                 <tbody>
 
-                    {products.map((product) => (
+                    {data.products.map((product) => (
                         <tr key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
@@ -91,6 +95,8 @@ const ProductListScreen = () => {
                 </tbody>
 
             </Table>
+
+            <Paginate pages={data.pages} page={data.page} isAdmin={true}></Paginate> {/* page component buttom left */}
         </>
         )}
     </>
