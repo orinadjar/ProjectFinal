@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
+import SearchBox from './SearchBox';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import logo from '../assets/logo.png';
@@ -24,30 +25,23 @@ const Header = () => {
     <span>{userInfo?.name || 'Guest'}</span>
   );
 
-  console.log(userInfo?.easterPerk);
-
-
   const logoutHandler = async () => {
-
-    try{
-        
+    try{ 
         await logoutApiCall().unwrap();
-
         dispatch(logout());
-
         navigate('/login');
 
     } catch(err){
         console.log(err);
     }
-}
-
+  }
 
   return (
     <header>
         <Navbar variant="dark" className="navbar-compact navbar-lightblue">
 
             <Container>
+
                 <LinkContainer to='/'>
                     <Navbar.Brand >
                         <img src={logo} alt="ORIginal" style={{ maxHeight: '150px', width: '100px' }} />
@@ -55,7 +49,9 @@ const Header = () => {
                 </LinkContainer>
 
                 <Nav className='ms-auto'>
-                    
+
+                    <SearchBox></SearchBox>
+
                     <LinkContainer to='/cart'>
                         <Nav.Link> <FaShoppingCart/> Cart 
                             {

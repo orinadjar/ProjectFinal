@@ -172,6 +172,60 @@
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
   background-color: white;
 }
+/* search btn */
+.btn-search {
+  background: linear-gradient(135deg, #bbb7b7, #b1afaf);
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin-right: 0.4rem;
+}
+
+.btn-search::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(160, 155, 155, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-search:hover::before {
+  left: 100%;
+}
+
+.btn-search:hover {
+  background: linear-gradient(135deg, #979393, #666);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-search:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-search svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  color: inherit;
+  margin-right: 0.4rem;
+}
+
 
 /* Add to Cart Button */
 .btn-block {

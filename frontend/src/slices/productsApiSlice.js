@@ -6,10 +6,11 @@ export const productsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         // Define the getProducts query
         getProducts: builder.query({
-            query: ({ category, pageNumber }) => {
+            query: ({ category, pageNumber, keyword }) => {
               const params = {};
               if (category) params.category = category;
               if (pageNumber) params.pageNumber = pageNumber;
+              if (keyword) params.keyword = keyword;
           
               return {
                 url: PRODUCTS_URL,

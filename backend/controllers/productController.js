@@ -9,10 +9,13 @@ const getProducts = asyncHandler(async (req,res) => {
     const pageSize = 8;
     const page = Number(req.query.pageNumber) || 1;
 
-    const count = await Product.countDocuments(); // gets total num of products
+    // catching the key word from url and regex it to search ( case insensitive )
+    const keyword = req.query.keyword ? { name: { $regex: req.query.keyword, $options: 'i' } } : {};
 
     const category = req.query.category;
-    const queryObject = category ? { category } : {};
+    const queryObject = category ? { category, ...keyword } : {...keyword};
+
+    const count = await Product.countDocuments( queryObject ); // gets total num of products
     
     const products = await Product.find(queryObject).limit(pageSize).skip(pageSize * (page - 1));
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
