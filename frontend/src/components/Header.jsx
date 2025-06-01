@@ -50,6 +50,9 @@ const Header = () => {
 
                 <Nav className='ms-auto'>
 
+
+
+
                     <SearchBox></SearchBox>
 
                     <LinkContainer to='/cart'>

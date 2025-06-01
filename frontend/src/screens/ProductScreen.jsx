@@ -150,7 +150,7 @@ const ProductScreen = () => {
         <Row className="reviews">
 
             <Col md={6}>
-                <h2>Reviews</h2>
+                <h2 className="mt-2">Reviews</h2>
                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
                 <ListGroup varient='flush'>
                     { product.reviews.map((review) => (

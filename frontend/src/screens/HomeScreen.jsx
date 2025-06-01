@@ -7,6 +7,7 @@ import Message from '../components/Message';
 import '../assets/styles/HomeScreen.css';
 import { useState } from 'react';
 import Paginate from '../components/Paginate';
+import ProductCarousel from '../components/ProductCarousel';
 
 const HomeScreen = () => {
 
@@ -46,7 +47,7 @@ const HomeScreen = () => {
   }
 
   return <>
-    {keyword && <Link to='/' className="btn btn-light my-3 mb-4">Go Back</Link>}
+    {!keyword ? <ProductCarousel/> : <Link to='/' className="btn btn-light my-3 mb-4">Go Back</Link>}
     
     <div className="home-container">
       <div className="hero-section">
