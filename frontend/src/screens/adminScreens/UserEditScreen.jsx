@@ -14,7 +14,7 @@ const UserEditScreen = () => {
     const [email, Setemail] = useState('');
     const [isAdmin, SetisAdmin] = useState(0);
 
-    const { data: user, isLoading, refetch, error } = useGetUserByIdQuery(userId);
+    const { data: user, isLoading, error } = useGetUserByIdQuery(userId);
 
     const [updateUser, {isLoading: loadingUpdate }] = useUpdateUserMutation();
 
@@ -50,7 +50,7 @@ const UserEditScreen = () => {
             <FormContainer>
                 <h1>Edit User</h1>
                 {loadingUpdate && <Loader></Loader>}
-                {isLoading ? <Loader /> : error ? <Message variant='danger'>  {error?.data?.message || error.error || 'An error occurred'} </Message> : (
+                {isLoading ? <Loader /> : error ? <Message variant='danger'>  { error?.data?.message || error.error } </Message> : (
                     <Form onSubmit={submitHandler}>
                         <Form.Group controlId='name' className="my-2">
                             <Form.Label>Name</Form.Label>

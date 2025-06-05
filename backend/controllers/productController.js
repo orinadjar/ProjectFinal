@@ -15,9 +15,18 @@ const getProducts = asyncHandler(async (req,res) => {
     const category = req.query.category;
     const queryObject = category ? { category, ...keyword } : {...keyword};
 
+    const sortParam = req.query.sort;
+    let sortOption = {};
+
+    if (sortParam === 'price_asc') {
+        sortOption = { price: 1 };
+    } else if (sortParam === 'price_desc') {
+        sortOption = { price: -1 };
+    }
+
     const count = await Product.countDocuments( queryObject ); // gets total num of products
     
-    const products = await Product.find(queryObject).limit(pageSize).skip(pageSize * (page - 1));
+    const products = await Product.find(queryObject).sort(sortOption).limit(pageSize).skip(pageSize * (page - 1));
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 

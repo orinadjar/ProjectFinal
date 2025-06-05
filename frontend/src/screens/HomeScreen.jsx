@@ -5,7 +5,7 @@ import { useGetProductsQuery, useGetCategoriesQuery } from '../slices/productsAp
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import '../assets/styles/HomeScreen.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
@@ -13,15 +13,20 @@ import Meta from '../components/Meta';
 const HomeScreen = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [sortType, setSortType] = useState('');
   
   const { pageNumber, keyword } = useParams();
 
-  const { data, isLoading: productsLoading, error: productsError } = useGetProductsQuery({ category: selectedCategory, pageNumber, keyword });
+  const { data, isLoading: productsLoading, error: productsError } = useGetProductsQuery({ category: selectedCategory, pageNumber, keyword, sort: sortType });
   const { data: categories, isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category === selectedCategory ? '' : category);
   };
+
+  useEffect(() => {
+    setSortType(sortType);
+  }, [sortType])
 
   if (productsLoading || categoriesLoading) {
     return (
@@ -75,6 +80,13 @@ const HomeScreen = () => {
           ))}
         </div>
       </div>
+
+      <select className='form-select my-3' value={sortType}  onChange={(e) => setSortType(e.target.value)}>
+        <option value="">Sort By:</option>
+        <option value="price_asc">Price: low to high</option>
+        <option value="price_desc">Price: high to low</option>
+      </select>
+
 
       <Row className="products-row">
         {data.products.map((product) => (
