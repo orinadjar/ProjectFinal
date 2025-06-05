@@ -8,6 +8,7 @@
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.8",
     "bootstrap": "^5.3.3",
+    "proshop": "file:..",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
