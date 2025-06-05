@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { useGetProductDetailsQuery, useCreateRwviewMutation } from "../slices/productsApiSlice";
 import { addToCart } from "../slices/cartSlice";
 import '../assets/styles/ProductScreen.css'
-import Product from "../components/Product";
+import Meta from "../components/Meta";
 
 
 const ProductScreen = () => {
@@ -70,6 +70,7 @@ const ProductScreen = () => {
             <Loader></Loader>
         ) : error ? (<Message variant='danger'>{ error?.data?.message || error.error }</Message>) : 
         (<>
+        <Meta title={product.name}></Meta> 
         <Row>
             <Col md={5}>
                 <Image src={product.image} alt={product.name} fluid></Image>

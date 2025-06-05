@@ -9,6 +9,7 @@ import {
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import { Provider } from 'react-redux';
 import store from './store.js';
+import { HelmetProvider } from 'react-helmet-async'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/index.css';
 import './assets/styles/bootstrap.custom.css';
@@ -79,15 +80,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <Provider store={store}>
+    <HelmetProvider>
 
-      <PayPalScriptProvider>
+      <Provider store={store}>
 
-        <RouterProvider router={router}/>
+        <PayPalScriptProvider>
 
-      </PayPalScriptProvider>
+          <RouterProvider router={router}/>
 
-    </Provider>
+        </PayPalScriptProvider>
+
+      </Provider>
+
+    </HelmetProvider>
 
   </React.StrictMode>
 );

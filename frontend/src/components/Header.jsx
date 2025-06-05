@@ -44,7 +44,7 @@ const Header = () => {
 
                 <LinkContainer to='/'>
                     <Navbar.Brand >
-                        <img src={logo} alt="ORIginal" style={{ maxHeight: '150px', width: '100px' }} />
+                        <img src={logo} alt="ORIginal" style={{ maxHeight: '68px', width: '73px' }} />
                     </Navbar.Brand>
                 </LinkContainer>
 

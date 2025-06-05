@@ -105,6 +105,8 @@ const ProductEditScreen = () => {
                             <Form.Control type='file' lable='Choose file' onChange={ uploadFileHandler }></Form.Control>
                         </Form.Group>
 
+                        {loadingUpload && <Loader/>}
+
                         <Form.Group controlId='brand' className="my-2">
                             <Form.Label>Brand</Form.Label>
                             <Form.Control type='text' placeholder="Enter Brand" value={brand} onChange={(e) => Setbrand(e.target.value)}>

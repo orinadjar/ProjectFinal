@@ -8,6 +8,7 @@ import '../assets/styles/HomeScreen.css';
 import { useState } from 'react';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta';
 
 const HomeScreen = () => {
 
@@ -51,6 +52,7 @@ const HomeScreen = () => {
     
     <div className="home-container">
       <div className="hero-section">
+        <Meta></Meta>
         <h1 className="main-heading">Latest Products</h1>
         <p className="subheading">Discover our official collection</p>        
         <div className="categories-container">
