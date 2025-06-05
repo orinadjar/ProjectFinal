@@ -20,9 +20,17 @@ const getProducts = asyncHandler(async (req,res) => {
 
     if (sortParam === 'price_asc') {
         sortOption = { price: 1 };
-    } else if (sortParam === 'price_desc') {
+    } 
+    else if (sortParam === 'price_desc') {
         sortOption = { price: -1 };
+    } 
+    else if (sortParam === 'rating_desc') {
+        sortOption = { rating: -1 };
+    } 
+    else if (sortParam === 'rating_asc') {
+        sortOption = { rating: 1 };
     }
+      
 
     const count = await Product.countDocuments( queryObject ); // gets total num of products
     

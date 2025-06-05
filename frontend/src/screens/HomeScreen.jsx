@@ -21,6 +21,7 @@ const HomeScreen = () => {
   const { data: categories, isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
 
   const handleCategoryChange = (category) => {
+
     setSelectedCategory(category === selectedCategory ? '' : category);
   };
 
@@ -81,11 +82,14 @@ const HomeScreen = () => {
         </div>
       </div>
 
-      <select className='form-select my-3' value={sortType}  onChange={(e) => setSortType(e.target.value)}>
+      <select className='form-select my-3' value={sortType} onChange={(e) => setSortType(e.target.value)}>
         <option value="">Sort By:</option>
         <option value="price_asc">Price: low to high</option>
         <option value="price_desc">Price: high to low</option>
+        <option value="rating_desc">Rating: high to low</option>
+        <option value="rating_asc">Rating: low to high</option>
       </select>
+
 
 
       <Row className="products-row">
